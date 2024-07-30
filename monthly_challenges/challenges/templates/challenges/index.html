@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static%}
+
+{% block ul_css %}
+<link rel="stylesheet" href= "{% static "challenges\challenges.css" %}">
+{% endblock%}
+
+{% block page_title %}List of months
+{% endblock %}
+
+{% block page_content%}
+<ul>
+    {% for month in  months %}
+    <li> <a href="{% url 'monthly_seasons' month %}">{{month|title}}</a></li>
+    {%endfor%}
+</ul>
+{% endblock %} 
+
+
+{% comment %} <html lang="en">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of months</title>
+</head>
+<body>
+<ul>
+    {% for month in months %}
+    <!--> <li><a href="{{month}}">{{month|title}}</a></li> <!-->
+    <li>
+        <a href="{% url 'monthly_seasons' month %}">
+            {{month|title}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html> {% endcomment %}
